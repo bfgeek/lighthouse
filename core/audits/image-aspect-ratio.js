@@ -32,6 +32,7 @@ const UIStrings = {
 const str_ = i18n.createIcuMessageFn(import.meta.url, UIStrings);
 
 const THRESHOLD_PX = 2;
+const THRESHOLD_RATIO = 0.01;
 
 /** @typedef {Required<LH.Artifacts.ImageElement>} WellDefinedImage */
 
@@ -59,7 +60,9 @@ class ImageAspectRatio extends Audit {
     const displayedAspectRatio = image.displayedWidth / image.displayedHeight;
 
     const targetDisplayHeight = image.displayedWidth / actualAspectRatio;
-    const doRatiosMatch = Math.abs(targetDisplayHeight - image.displayedHeight) < THRESHOLD_PX;
+    const doRatiosMatch =
+      Math.abs(targetDisplayHeight - image.displayedHeight) < THRESHOLD_PX ||
+      Math.abs(displayedAspectRatio - actualAspectRatio) < THRESHOLD_RATIO;
 
     return {
       url,
