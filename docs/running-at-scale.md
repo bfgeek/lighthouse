@@ -30,13 +30,6 @@ You'll be running Lighthouse CLI on your own machines, and we have guidance on t
 
 Approx eng effort: 1 day for the first result, after provisioning and setup. Another 2-5 days for calibrating, troubleshooting, handling interaction with cloud machines.
 
-## Option 3: Using Lighthouse CI in the cloud
+## Option 3: Gather data via a service that integrates Lighthouse
 
-[Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci#readme) leverages the CLI at its core and it provides a complete experience for those who want to understand how each commit in development affects their Lighthouse results. So while the product is designed for running Lighthouse for every pushed git commit, it's possible to use it for some production monitoring usecases. See [this recipe](https://github.com/GoogleChrome/lighthouse-ci/issues/5#issuecomment-591578507) to fake git commit data while testing production URLs.
-
-* PRO: Easy multiple-run configuration, selection of median run
-* PRO: Server UI offers timeseries graphs [(example)](https://lhci-canary.herokuapp.com/app/projects/d1e4b15c-e644-4552-b136-e975f486a2ce/dashboard) supported by [straightforward APIs](https://github.com/GoogleChrome/lighthouse-ci/blob/master/packages/server/src/api/routes/projects.js).
-* CON: Must create and maintain testing environment
-* CON: Must setup and maintain Lighthouse CI server
-
-Approx eng effort: ½ day for the first result, after provisioning and setup. Another 1-3 days for calibrating, troubleshooting, working with the API/UI.
+Many are listed in our readme: https://github.com/GoogleChrome/lighthouse#lighthouse-integrations-in-web-perf-services
