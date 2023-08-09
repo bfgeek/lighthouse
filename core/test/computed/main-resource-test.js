@@ -76,7 +76,7 @@ describe('MainResource computed artifact', () => {
     const networkRecords = [
       {url: 'https://example.com'},
       {url: 'https://example.com/sw.js'},
-      {url: 'https://example.com#pickme'},
+      {url: 'https://example.com', resourceType: 'Document', failed: true},
     ];
 
     const URL = {mainDocumentUrl: 'https://example.com'};
@@ -85,7 +85,8 @@ describe('MainResource computed artifact', () => {
 
     const context = {computedCache: new Map()};
     return MainResource.request(artifacts, context).then(output => {
-      assert.equal(output.url, 'https://example.com#pickme');
+      assert.equal(output.url, 'https://example.com');
+      assert.equal(output.failed, true);
     });
   });
 });
