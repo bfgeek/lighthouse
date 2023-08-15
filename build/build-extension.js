@@ -32,7 +32,8 @@ async function buildEntryPoint() {
     outfile: `${distDir}/scripts/${distName}`,
     format: 'iife',
     bundle: true,
-    minify: !process.env.DEBUG,
+    // Minified extensions tend to be more difficult to get approved in managed extension stores.
+    minify: false,
     plugins: [
       plugins.bulkLoader([
         plugins.partialLoaders.replaceText({
